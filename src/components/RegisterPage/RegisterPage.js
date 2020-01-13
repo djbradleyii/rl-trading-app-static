@@ -92,7 +92,6 @@ export default class RegisterPage extends React.Component{
                 <div>
                     <label htmlFor="register-rank">Rank:</label>
                     <select id="register-rank" name="register-rank">
-                      <option value="all">All</option>
                       <option value="black">Grand Champion</option>
                       <option value="champion-3">Champion III</option>
                       <option value="champion-2">Champion II</option>
@@ -118,7 +117,6 @@ export default class RegisterPage extends React.Component{
                 <div>
                     <label htmlFor="register-rank-division">Division:</label>
                     <select id="register-rank-division" name="register-rank-division">
-                      <option value="all">All</option>
                       <option value="dividion-4">IV</option>
                       <option value="dividion-3">III</option>
                       <option value="dividion-2">II</option>
