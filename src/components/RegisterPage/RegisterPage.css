@@ -1,7 +1,25 @@
 #register-form{
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 8px;
+/*     background-color: #fcca46; */
+    color: black;
+/*     box-shadow: 3px 2px 2px rgba(0,0,0,.6); */
+    font-weight: bold;
+}
+
+#register-form{
     width: 100%;
     padding: 15px;
     font-size: 14px;
+}
+
+#register-form input{
+    display: block;
+    margin: 5px 0;
+    width: 100%;
 }
 
 #register-form textarea{
@@ -10,25 +28,14 @@
     height: 65px;
 }
 
-#register-form fieldset{
+#register-form select{
     margin-top: 5px;
-    margin-bottom: 5px;
-    border: none;
+    margin-bottom: 5px;  
 }
 
-#register-form fieldset li{
-    display: inline-block;
-    text-align: center;
-    width: 45%;
-}
-
-#register-form fieldset input{
-    width: 12px;
-    vertical-align: middle;
-}
-
-#register-form fieldset label{
-    margin-left: 5px;
+#register-form label{
+    font-size: .95em;
+    margin-right: 10px;
 }
 
 @media only screen and (min-width: 400px) {

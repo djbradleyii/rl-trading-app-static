@@ -7,7 +7,7 @@ import UsersApiService from '../../services/users-api-service'; */
 import './SignInPage.css';
 
 export default class SignInPage extends React.Component{
-    static contextType = ContextManager;
+/*     static contextType = ContextManager;
     handleSubmitJwtAuth = e => {
         e.preventDefault();
         this.setState({ error: null });
@@ -35,15 +35,15 @@ export default class SignInPage extends React.Component{
             this.context.scrollToErrorMessage();
          })
 
-    }
+    } */
 
     render(){
         return(
             <form onSubmit={this.handleSubmitJwtAuth} id="signin-form">
-                <div className="error-message">{!!this.context.errorMessage && this.context.errorMessage}</div>
+               {/*  <div className="error-message">{!!this.context.errorMessage && this.context.errorMessage}</div> */}
                 <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" />
+                    <label htmlFor="gamertag">Gamertag:</label>
+                    <input type="text" id="gamertag" name="gamertag" />
                 </div>
                 <div>
                     <label htmlFor="password">Password:</label>

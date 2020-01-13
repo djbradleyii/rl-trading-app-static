@@ -90,6 +90,42 @@ export default class RegisterPage extends React.Component{
                     <input type="text" id="gamertag" placeholder="ex. Savage Goalie 3024" name="gamertag" required/>
                 </div>
                 <div>
+                    <label htmlFor="register-rank">Rank:</label>
+                    <select id="register-rank" name="register-rank">
+                      <option value="all">All</option>
+                      <option value="black">Grand Champion</option>
+                      <option value="champion-3">Champion III</option>
+                      <option value="champion-2">Champion II</option>
+                      <option value="champion-1">Champion I</option>
+                      <option value="diamond-3">Diamond III</option>
+                      <option value="diamond-2">Diamond II</option>
+                      <option value="diamond-1">Diamond I</option>
+                      <option value="platinum-3">Platinum III</option>
+                      <option value="platinum-2">Platinum II</option>
+                      <option value="platinum-1">Platinum I</option>
+                      <option value="gold-3">Gold III</option>
+                      <option value="gold-2">Gold II</option>
+                      <option value="gold-1">Gold I</option>
+                      <option value="silver-3">Silver III</option>
+                      <option value="silver-2">Silver II</option>
+                      <option value="silver-1">Silver I</option>
+                      <option value="bronze-3">Bronze III</option>
+                      <option value="bronze-2">Bronze II</option>
+                      <option value="bronze-1">Bronze I</option>
+                      <option value="unranked">Unranked</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="register-rank-division">Division:</label>
+                    <select id="register-rank-division" name="register-rank-division">
+                      <option value="all">All</option>
+                      <option value="dividion-4">IV</option>
+                      <option value="dividion-3">III</option>
+                      <option value="dividion-2">II</option>
+                      <option value="dividion-1">I</option>
+                    </select>
+                </div>
+                <div>
                     <label htmlFor="email">*Email:</label>
                     <input type="email" id="email" name="email" placeholder="ex. myemailaddress@email.com" required />
                 </div>
