@@ -1,0 +1,39 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.user-trades h2, .user-team-requests h2{
+    font-size: 16px;
+    text-align: center;
+    background-color: lightgray;
+}
+
+@media only screen and (min-width: 480px){
+    .dashboard{
+        max-width: 480px;
+    }
+
+    .user-trades h2, .user-team-requests h2{
+        font-size: 1.7em;
+    }
+}
+
+@media only screen and (min-width: 700px){
+    .dashboard{
+        flex-direction: row;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .user-trades{
+        flex: 1;
+    }
+
+    .user-team-requests{
+        flex: 1;
+    }
+}
