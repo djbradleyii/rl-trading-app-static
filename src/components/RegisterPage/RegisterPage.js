@@ -117,10 +117,11 @@ export default class RegisterPage extends React.Component{
                 <div>
                     <label htmlFor="register-rank-division">Division:</label>
                     <select id="register-rank-division" name="register-rank-division">
-                      <option value="dividion-4">IV</option>
-                      <option value="dividion-3">III</option>
-                      <option value="dividion-2">II</option>
-                      <option value="dividion-1">I</option>
+                        <option value="none"></option>
+                        <option value="dividion-4">IV</option>
+                        <option value="dividion-3">III</option>
+                        <option value="dividion-2">II</option>
+                        <option value="dividion-1">I</option>
                     </select>
                 </div>
                 <div>
