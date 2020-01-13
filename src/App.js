@@ -13,7 +13,7 @@ export default class App extends React.Component{
     return (
       <div className="App">
         <Header />
-        <Route exact path="/dashboard" component={Dashboard}></Route>
+        <Route exact path="/dashboard/:userId" component={Dashboard}></Route>
         <Switch>
           <Route exact path="/inventory/:userId" component={Inventory}></Route>
           <Route exact path="/inventory/:category" component={Inventory}></Route>

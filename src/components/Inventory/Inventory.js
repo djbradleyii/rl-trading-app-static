@@ -80,11 +80,11 @@ export default class Inventory extends React.Component{
                 <div className="card-rarity">
                  <p>Limited(rarity) Body(item type)</p>
                 </div>
-                <div className="row">
+                <div className="row card-attribute">
                   <div className="column"><p>TITANIUM WHITE (color)</p></div>
                   <div className="column"><p>PAINTED (attribute)</p></div>
                 </div>
-                <div className="row">
+                <div className="row card-attribute">
                   <div className="column"><p>SKILLFUL SWEEPER (certified tag name)</p></div>
                   <div className="column"><p>CERTIFIED</p></div>
                 </div>
@@ -94,7 +94,7 @@ export default class Inventory extends React.Component{
                 <div className="card-rarity">
                  <p>Limited(rarity) Body(item type)</p>
                 </div>
-                <div className="row">
+                <div className="row card-attribute">
                   <div className="column"><p>LIME</p></div>
                   <div className="column"><p>PAINTED</p></div>
                 </div>
@@ -112,15 +112,15 @@ export default class Inventory extends React.Component{
                     <div className="card-rarity">
                     <p>Limited(rarity) Wheels(item type)</p>
                     </div>
-                    <div className="row">
+                    <div className="row card-attribute">
                       <div className="column"><p>INFINITE (special edition tag)</p></div>
                       <div className="column"><p>SPECIAL EDITION (attribute)</p></div>
                     </div>
-                    <div className="row">
+                    <div className="row card-attribute">
                       <div className="column"><p>CRIMSON (color)</p></div>
                       <div className="column"><p>PAINTED (attribute)</p></div>
                     </div>
-                    <div className="row">
+                    <div className="row card-attribute">
                       <div className="column"><p>GOALKEEPER (certified tag)</p></div>
                       <div className="column"><p>CERTIFIED (attribute)</p></div>
                     </div>

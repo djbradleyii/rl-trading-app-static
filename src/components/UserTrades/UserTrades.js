@@ -18,6 +18,7 @@ export default class UserTrades extends React.Component{
                             <p>Titanium White Painted</p>
                             <p>Skillful Sweeper Certified</p>
                         </div>
+                        <div className="trade-confirmed"><button>Trade Confirmed</button></div>
                     </article>
                     <article className="trade-card">
                         <h3>Trade Title</h3>
@@ -31,6 +32,7 @@ export default class UserTrades extends React.Component{
                             <p>Titanium White Painted</p>
                             <p>Skillful Sweeper Certified</p>
                         </div>
+                        <div className="trade-confirmed"><button>Trade Confirmed</button></div>
                     </article>
             </section>
         );

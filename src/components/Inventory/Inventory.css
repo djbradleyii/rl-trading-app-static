@@ -52,7 +52,7 @@ label[for*="item"]{
 
 @media only screen and (min-width: 500px){
     .inventory-search-results > .row{
-        max-width: 500px;
+        width: 525px;
     }
 
     .inventory-search-results{
@@ -74,5 +74,13 @@ label[for*="item"]{
 
     #item-category, #item-color, #item-rarity, #item-attribute{
         width: 100%;
+    }
+
+    .card-attribute{
+        display: flex;
+    }
+
+    .card-attribute .column:nth-child(odd){
+        flex: 1;
     }
 } 
