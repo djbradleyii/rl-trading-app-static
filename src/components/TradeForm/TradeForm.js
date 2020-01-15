@@ -1,7 +1,7 @@
 import React from 'react';
-import './RegisterPage.css';
+import './TradeForm.css';
 
-export default class RegisterPage extends React.Component{
+export default class TradeForm extends React.Component{
     render(){
         return(
             <>
