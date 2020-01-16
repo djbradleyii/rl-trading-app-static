@@ -1,7 +1,7 @@
 import React from 'react';
 import UserTeamRequests from '../UserTeamRequests/UserTeamRequests';
 import UserTrades from '../UserTrades/UserTrades';
-import Inventory from '../Inventory/Inventory';
+import UserInventory from '../UserInventory/UserInventory';
 import './Dashboard.css';
 
 export default class Dashboard extends React.Component{
@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component{
             <section className="dashboard">
                 <UserTrades />
                 <UserTeamRequests />
-                <Inventory />
+                <UserInventory />
             </section>
         );
     }

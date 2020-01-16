@@ -7,9 +7,10 @@ export default [
         bio: "David's Bio",
         platform: "PC",
         gamertag: "PaperKid",
-        rank: "Daimond III",
+        rank: "Diamond III",
         division: "I",
-        email: "dbradley@gmail.com"
+        email: "dbradley@gmail.com",
+        lft: true,
     },
     {
         id: 2,
@@ -21,7 +22,8 @@ export default [
         gamertag: "Crooked Nebula",
         rank: "Platinum III",
         division: "III",
-        email: "kadams@aol.com"
+        email: "kadams@aol.com",
+        lft: true,
     },
     {
         id: 3,
@@ -31,8 +33,9 @@ export default [
         bio: "Amanda's Bio",
         platform: "PC",
         gamertag: "Solid Hydra",
-        rank: "Champ II",
+        rank: "Champion II",
         division: "II",
-        email: "apearl@yahoo.com"
+        email: "apearl@yahoo.com",
+        lft: false
     }
 ]

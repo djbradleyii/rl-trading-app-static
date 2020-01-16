@@ -1,10 +1,10 @@
 import React from 'react';
 
 const ContextManager = React.createContext({
+    selectedUser: {},
     users: [],
     inventory: [],
     items: [],
-    attributes: [],
     trades: [],
     teams: []
 });

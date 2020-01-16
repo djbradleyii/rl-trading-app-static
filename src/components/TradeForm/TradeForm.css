@@ -1,0 +1,56 @@
+#trade-form{
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 8px;
+/*     background-color: #fcca46; */
+    color: black;
+/*     box-shadow: 3px 2px 2px rgba(0,0,0,.6); */
+    font-weight: bold;
+}
+
+#trade-form{
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+}
+
+#trade-form label{
+    font-size: .95em;
+    margin-right: 10px;
+}
+
+#trade-form select{
+    margin-top: 5px;
+    margin-bottom: 5px;  
+}
+
+#trade-form input{
+    margin: 5px;
+}
+
+@media only screen and (min-width: 400px) {
+    #trade-form{
+        width: 75%;
+        padding: 25px;
+    }
+
+  }
+
+@media only screen and (min-width: 600px) {
+    #trade-form{
+        width: 500px;
+        padding: 25px;
+    }
+    
+    #trade-form button{
+        width: 200px;
+        height: 35px;
+    }
+
+    #trade-form select{
+        width: 200px;
+        height: 35px;
+    }
+}

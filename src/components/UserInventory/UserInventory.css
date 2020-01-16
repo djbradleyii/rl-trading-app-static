@@ -1,0 +1,103 @@
+.trade-confirmed{
+    width: 100%;
+}
+
+.trade-confirmed button{
+    margin-top: 10px;
+    width: 100%;
+}
+
+/*MOBILE STYLES*/
+#inventory-search-form{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    grid-column: span 2;
+}
+
+.inventory-search-results{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+#inventory-search-form div{
+    width: 75px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.inventory-search-results > .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inventory-search-results > .row > .column{
+    flex: 45%;
+    padding: 5px;
+}
+
+label[for*="item"]{
+    display:inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+#item-category, #item-color, #item-rarity, #item-attribute{
+    width: 72px;
+}
+
+.item-card{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,.3);
+    margin-bottom: 15px;
+}
+
+.item-card h3{
+    font-size: 14px;
+}
+
+.item-card p{
+    font-size: 12px;
+}
+
+/*DESkTOP STYLES*/
+
+@media only screen and (min-width: 500px){
+    .inventory-search-results > .row{
+        width: 525px;
+    }
+
+    .inventory-search-results{
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    #inventory-search-form{
+        /*width: 70%;*/
+        margin: 0 auto;
+        margin-bottom: 30px;
+        justify-content: space-evenly;
+    }
+
+    #inventory-search-form div{
+        width: 75px;
+        font-size: .9em;
+    }
+
+    #item-category, #item-color, #item-rarity, #item-attribute{
+        width: 100%;
+    }
+
+    .card-attribute{
+        display: flex;
+    }
+
+    .card-attribute .column:nth-child(odd){
+        flex: 1;
+    }
+} 
