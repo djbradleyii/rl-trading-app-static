@@ -12,7 +12,7 @@ export default class UserTeamRequests extends React.Component{
         const teamCards = teams.map((user, i) => {
             return(
                 <article key={i} className="team-card">
-                    <h3>{user.gamertag}</h3>
+                    <h3>Gamertag: {user.gamertag}</h3>
                     <div className="team-card-platform">
                         <div className="team-column"><p>Platform:</p></div>
                         <div className="team-column"><p>{user.platform}</p></div>

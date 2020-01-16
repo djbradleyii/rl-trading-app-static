@@ -51,9 +51,6 @@ export default class TeamBoard extends React.Component{
                         <div className="team-column"><p>Division:</p></div>
                         <div className="team-column"><p>{user.division}</p></div>
                     </div>
-                    <div>
-                        <button>Add to Dashboard</button>
-                    </div>
                 </article>
             )
         })

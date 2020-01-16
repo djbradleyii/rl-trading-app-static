@@ -39,7 +39,7 @@ export default [
         id: 5,
         category: "body",
         name: "octane",
-        painted: "titanium white",
+        painted: "crimson",
         rarity: "common",
         special_edition: null,
         certified: null,
@@ -106,8 +106,7 @@ export default [
         rarity: "black market",
         special_edition: null,
         certified: "TURTLE",
-    }
-    ,
+    },
     {
         id: 13,
         category: "wheels",

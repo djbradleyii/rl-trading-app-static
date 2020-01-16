@@ -34,6 +34,24 @@ export default class App extends React.Component{
     }
   }
 
+  updateSelectedUserState = (updateSelectedUserData) => {
+    this.setState({
+      selectedUser: updateSelectedUserData
+    })
+  }
+
+  updateStatesTrades = (newTrades) => {
+    this.setState({
+      trades: [...trades, ...newTrades]
+    })
+  }
+
+  removeTrade = (newTrades) => {
+    this.setState({
+      trades: newTrades
+    })
+  }
+
   render(){
     const contextValue = {
       selectedUser: this.state.selectedUser,
@@ -41,7 +59,10 @@ export default class App extends React.Component{
       inventory: this.state.inventory,
       items: this.state.items,
       trades: this.state.trades,
-      teams: this.state.teams
+      teams: this.state.teams,
+      updateSelectedUserState: this.updateSelectedUserState,
+      updateStatesTrades: this.updateStatesTrades,
+      removeTrade: this.removeTrade
     }
     
     return (

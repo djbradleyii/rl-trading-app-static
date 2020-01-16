@@ -6,7 +6,10 @@ const ContextManager = React.createContext({
     inventory: [],
     items: [],
     trades: [],
-    teams: []
+    teams: [],
+    updateSelectedUserState: () => {},
+    updateStatesTrades: () => {},
+    removeTrade: () => {}
 });
 
 export default ContextManager;

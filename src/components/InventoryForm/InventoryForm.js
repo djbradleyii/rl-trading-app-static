@@ -1,9 +1,6 @@
 import React from 'react';
 import './InventoryForm.css';
 import ContextManager from '../../context/context-manager';
-/*import AuthApiService from '../../services/auth-api-service';
-import AuthApiService from '../../services/auth-api-service';
-import TokenService from '../../services/token-service'; */
 
 export default class InventoryForm extends React.Component{
 static contextType = ContextManager;
@@ -12,7 +9,6 @@ static contextType = ContextManager;
         return(
             <form id="inventory-form" /* onSubmit={this.handleRegSubmit} */>
                 <div className="info">*Required Fields</div>
-               {/*  <div className="error-message">{!!this.context.errorMessage && this.context.errorMessage}</div> */}
                 <div className="inventory">
                     <div>
                         <label htmlFor="invetory-category">Category:</label>

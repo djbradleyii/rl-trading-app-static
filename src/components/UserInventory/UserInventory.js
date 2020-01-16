@@ -18,7 +18,6 @@ export default class UserInventory extends React.Component{
 
     getCards = () => {
         let inventory = this.context.selectedUser.inventory;
-
         if(this.state.category !== "all"){
             inventory = inventory.filter((item) => {
                 return item.category.toLowerCase() === this.state.category.toLowerCase();
@@ -29,6 +28,8 @@ export default class UserInventory extends React.Component{
             inventory = inventory.filter((item) => {
                 if(item.painted !== null){
                     return item.painted.toLowerCase() === this.state.painted.toLowerCase();
+                } else {
+                    return "";
                 }
             })
         }
@@ -37,6 +38,8 @@ export default class UserInventory extends React.Component{
             inventory = inventory.filter((item) => {
                 if(item.rarity !== null){
                     return item.rarity.toLowerCase() === this.state.rarity.toLowerCase();
+                } else {
+                    return "";
                 }
             })
         }
@@ -53,6 +56,8 @@ export default class UserInventory extends React.Component{
 
                 if(this.state.attribute === "special edition" && item.special_edition !== null){
                     return item.special_edition !== null;
+                } else {
+                    return "";
                 }
             })
         }

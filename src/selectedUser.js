@@ -58,7 +58,35 @@ export default {
         {
             id: 1,
             userid: 1,
-            items:[1, 3, 4],
+            items:[
+                {
+                    id: 1,
+                    category: "body",
+                    name: "octane",
+                    painted: "titanium white",
+                    rarity: "common",
+                    special_edition: null,
+                    certified: null,
+                },
+                {
+                    id: 3,
+                    category: "paint finish",
+                    name: "furry",
+                    painted: null,
+                    rarity: "import",
+                    special_edition: null,
+                    certified: null,
+                },
+                {
+                    id: 4,
+                    category: "decal",
+                    name: "dissolver",
+                    painted: null,
+                    rarity: "black market",
+                    special_edition: null,
+                    certified: "SHOW-OFF",
+                }
+            ],
         }
     ]
 }
