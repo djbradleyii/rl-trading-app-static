@@ -40,8 +40,12 @@
         margin: 0 auto;
     }
 
-    .user-inventory h2{
+    .user-inventory h2, .user-info{
         grid-column: span 2;
+    }
+    
+    .user-info{
+        list-style: none;
     }
 }
 
