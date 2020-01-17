@@ -20,7 +20,11 @@ export default class UserInventory extends React.Component{
         let inventory = this.context.selectedUser.inventory;
         if(this.state.category !== "all"){
             inventory = inventory.filter((item) => {
-                return item.category.toLowerCase() === this.state.category.toLowerCase();
+                if(item.category !== null){
+                    return item.category.toLowerCase() === this.state.category.toLowerCase();
+                } else {
+                    return "";
+                }
             })
         }
 
@@ -47,14 +51,10 @@ export default class UserInventory extends React.Component{
         if(this.state.attribute !== "all"){
             inventory = inventory.filter((item) => {
                 if(this.state.attribute === "certified" && item.certified !== null){
-                    return item.certified.toLowerCase() === this.state.attribute.toLowerCase();
-                }
-
-                if(this.state.attribute === "painted" && item.painted !== null){
+                    return item.certified !== null;
+                } else if(this.state.attribute === "painted" && item.painted !== null){
                     return item.painted !== null;
-                }
-
-                if(this.state.attribute === "special edition" && item.special_edition !== null){
+                } else if(this.state.attribute === "special edition" && item.special_edition !== null){
                     return item.special_edition !== null;
                 } else {
                     return "";
@@ -133,7 +133,7 @@ export default class UserInventory extends React.Component{
                     </div>
                     <div>
                         <label htmlFor="item-color">Color:</label>
-                        <select id="item-color" name="item-color" onChange={this.updatePaintedState}>
+                        <select id="item-color" name="painted" onChange={this.updatePaintedState}>
                         <option value="all">All</option>
                         <option value="black">Black</option>
                         <option value="burnt sienna">Burnt Sienna</option>
@@ -152,7 +152,7 @@ export default class UserInventory extends React.Component{
                     </div>
                     <div>
                         <label htmlFor="item-rarity">Rarity:</label>
-                        <select id="item-rarity" name="item-rarity" onChange={this.updateRarityState}>
+                        <select id="item-rarity" name="rarity" onChange={this.updateRarityState}>
                         <option value="all">All</option>
                         <option value="common">Common</option>
                         <option value="uncommon">Uncommon</option>
@@ -167,7 +167,7 @@ export default class UserInventory extends React.Component{
                     </div>
                     <div className="styled-select">
                         <label htmlFor="item-attribute">Attribute:</label>
-                        <select id="item-attribute" name="item-attribute" onChange={this.updateAttributeState}>
+                        <select id="item-attribute" name="attribute" onChange={this.updateAttributeState}>
                         <option value="all">All</option>
                         <option value="certified">Certified</option>
                         <option value="painted">Painted</option>

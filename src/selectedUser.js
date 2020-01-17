@@ -21,7 +21,7 @@ export default {
         id: 2,
         category: "wheels",
         name: "drn",
-        painted: "burnt orange",
+        painted: "burnt sienna",
         rarity: "premium",
         special_edition: null,
         certified: null,

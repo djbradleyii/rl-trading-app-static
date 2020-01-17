@@ -48,7 +48,7 @@ export default [
         id: 6,
         category: "wheels",
         name: "drn",
-        painted: "burnt orange",
+        painted: "burnt sienna",
         rarity: "premium",
         special_edition: "INFINITE",
         certified: "AVIATOR",
