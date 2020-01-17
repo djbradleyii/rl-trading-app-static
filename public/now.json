@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "name": "rl-trading-app",
+    "alias": "rl-trading-app",
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+  }
