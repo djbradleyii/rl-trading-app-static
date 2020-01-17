@@ -1,110 +1,193 @@
 import React from 'react';
+import allItems from '../../allItems';
 import './InventoryForm.css';
 import ContextManager from '../../context/context-manager';
 
 export default class InventoryForm extends React.Component{
-static contextType = ContextManager;
+    static contextType = ContextManager;
+    state = {
+        category: "body"
+    }
+
+    proper = (word) => {
+        const toUpper = word.split(" ");
+
+        const completeWord = toUpper.map((word) => {
+            return word.charAt(0).toUpperCase() + word.substring(1);
+        })
+        
+        return completeWord.join(" ");    
+    }
+
+    updateStateCategory = (e) => {
+        e.preventDefault();
+        this.setState({
+            category: e.target.value
+        })
+    }
+
+    paintedApproved = () => {
+        const category = this.state.category;
+        if(category === "body" || category === "decal" || category === "rocket boost"|| category === "wheels" || category === "toppers"){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    createCategoryOptions = () => {
+        const category = ["body", "decal", "paint finish", "wheels", "rocket boost", "toppers", "antenna", "goal explosion", "trails", "player banner", "engine audio"];
+        const categorySelect = category.map((category, i) => {
+            return (
+                <option key={i} value={category}>{this.proper(category)}</option>
+            )
+        })
+        return categorySelect;
+    }
+
+    displayItems = () => {
+        const category = this.state.category;
+
+        const itemList = allItems[category].map((item, i) => {
+            return(
+                <option key={i} value={item}>{this.proper(item)}</option>
+            )
+        })
+        return(
+            <div>
+            <label htmlFor={`inventory-${category}-items`}>Items:</label>
+            <select id={`inventory-${category}-items`} name="categoryItem">
+                {itemList}
+            </select>
+            </div> 
+        )
+    }
+
+    createColorsCheckboxes = () => {
+        const colors = ["black", "burnt sienna", "cobalt", "crimson", "forest green", "grey", "lime", "orange", "pink", "purple", "saffron", "sky blue", "titanium white"];
+        const colorCheckboxes = colors.map((color, i) => {
+            return(
+                <div key={i}>
+                    <input type="checkbox" id={`color-${i}`} name={`color-${i}`} value={color} />
+                    <label htmlFor={`color-${i}`}>{this.proper(color)}</label>
+                </div> 
+            )
+        })
+        return colorCheckboxes;
+    }
+
+    createColorsSelect = () => {
+        const colors = ["black", "burnt sienna", "cobalt", "crimson", "forest green", "grey", "lime", "orange", "pink", "purple", "saffron", "sky blue", "titanium white"];
+        const colorSelect = colors.map((color, i) => {
+            return(
+                <option key={i} value={color}>{this.proper(color)}</option>
+            )
+        })
+        return(
+            <div>
+                <label htmlFor={`inventory-colors`}>Colors:</label>
+                <select id={`inventory-colors`} name="colors">
+                <option value={null}>Not Painted</option>
+                    {colorSelect}
+                </select>
+            </div> 
+        )
+    }
+
+
+    createRarityOptions = () => {
+        const rarity = ["common", "uncommon", "rare", "very rare", "import", "exotic", "black market", "premium", "limited"];
+        const rarityOptions = rarity.map((rare, i) => {
+            return <option key={i} value={rare}>{this.proper(rare)}</option>
+        })
+        return rarityOptions;
+    }
+
+    createCertifiedOptions = () => {
+        const certificationList = ["Acrobat", "Aviator", "Goalkeeper", "Guardian", "Juggler", "Paragon", "Playmaker", "Scorer", "Show-Off", "Sniper", "Striker", "Sweeper", "Tactician", "Turtle", "Victor"];
+        const certOptions = certificationList.map((cert, i) => {
+            return <option key={i} value={cert}>{this.proper(cert)}</option>
+        })
+        return certOptions;
+    }
+
+    createSpecialEditionOptions = () => {
+        const specialEdition = ["INVERTED", "INFINITE", "HOLOGRAPHIC"];
+        const specialEditionList = specialEdition.map((title, i) => {
+            return <option key={i} value={title}>{this.proper(title.toLowerCase())}</option>
+        })
+        return specialEditionList;
+    }
+
+    handleInventorySubmission = (e) => {
+        e.preventDefault();
+        let { category, categoryItem, colors, inventoryRarity, inventoryCertified, inventorySpecialEdition } = e.target;
+        if(!colors || colors.value === "Not Painted"){
+            colors = null;
+        } else {
+            colors = colors.value;
+        }
+        if(!inventoryCertified || inventoryCertified.value === "Not Certified"){
+            inventoryCertified = null;
+        } else {
+            inventoryCertified = inventoryCertified.value;
+        }
+        if(!inventorySpecialEdition || inventorySpecialEdition.value === "Not Special Edition"){
+            inventorySpecialEdition = null;
+        } else {
+            inventorySpecialEdition = inventorySpecialEdition.value;
+        }
+
+        const newInventoryItem = {
+            id: this.context.selectedUser.inventory.length + 1,
+            category: category.value,
+            name: categoryItem.value,
+            painted: colors,
+            rarity: inventoryRarity.value,
+            special_edition: inventorySpecialEdition,
+            certified: inventoryCertified
+        }
+
+        this.context.selectedUser.inventory.push(newInventoryItem);
+        this.context.items.push(newInventoryItem);
+    }
 
     render(){
         return(
-            <form id="inventory-form" /* onSubmit={this.handleRegSubmit} */>
+            <form id="inventory-form" onSubmit={this.handleInventorySubmission}>
                 <div className="info">*Required Fields</div>
                 <div className="inventory">
                     <div>
                         <label htmlFor="invetory-category">Category:</label>
-                        <select id="inventory-category" name="category">
-                        <option value="blueprints">Blueprints</option>
-                        <option value="body">Body</option>
-                        <option value="decal">Decal</option>
-                        <option value="paint_finish">Paint Finish</option>
-                        <option value="wheels">Wheels</option>
-                        <option value="rocket_boost">Rocket Boost</option>
-                        <option value="topper">Topper</option>
-                        <option value="antenna">Antenna</option>
-                        <option value="goal_explosion">Goal Explosion</option>
-                        <option value="trail">Trail</option>
-                        <option value="player_banner">Player Banner</option>
-                        <option value="avatar_border">Avatar Border</option>
-                        <option value="engine_audio">Engine Audio</option>
+                        <select id="inventory-category" name="category" onChange={this.updateStateCategory}>
+                            {this.createCategoryOptions()}
                         </select>
                     </div>
-                    <section className="form-checkboxes">
-                        <label htmlFor="item-category">Colors:</label>
-                        <div>
-                            <input type="checkbox" id="color-black" name="color-black" value="black" />
-                            <label htmlFor="color-black">Black</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-burnt-sienna" name="color-burnt-sienna" value="burnt-sienna" />
-                            <label htmlFor="color-burnt-sienna">Burnt Sienna</label>
-                        </div> 
-                        <div>
-                            <input type="checkbox" id="color-cobalt" name="color-cobalt" value="cobalt" />
-                            <label htmlFor="color-cobalt">Cobalt</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-crimson" name="color-crimson" value="crimson" />
-                            <label htmlFor="color-crimson">Crimson</label>
-                        </div> 
-                        <div>
-                            <input type="checkbox" id="color-forest_green" name="color-forest_green" value="forest_green" />
-                            <label htmlFor="color-forest_green">Forest Green</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-grey" name="color-grey" value="grey" />
-                            <label htmlFor="color-grey">Grey</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-lime" name="color-lime" value="lime" />
-                            <label htmlFor="color-lime">Lime</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-orange" name="color-orange" value="orange" />
-                            <label htmlFor="color-orange">Orange</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-pink" name="color-pink" value="pink" />
-                            <label htmlFor="color-pink">Pink</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-purple" name="color-purple" value="purple" />
-                            <label htmlFor="color-purple">Purple</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-saffron" name="color-saffron" value="saffron" />
-                            <label htmlFor="color-saffron">Saffron</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-sky_blue" name="color-sky_blue" value="sky_blue" />
-                            <label htmlFor="color-sky_blue">Sky Blue</label>
-                        </div>  
-                        <div>
-                            <input type="checkbox" id="color-titanium_white" name="color-titanium_white" value="titanium_white" />
-                            <label htmlFor="color-titanium_white">Titanium White</label>
-                        </div>  
-                    </section>
+                    {this.displayItems()}
+                    {this.paintedApproved() ? <section className="form-checkboxes">
+                        <label htmlFor="inventory-category">Colors:</label>
+                        {this.createColorsSelect()}
+                    </section> : "" }
                     <div>
                         <label htmlFor="inventory-rarity">Rarity:</label>
-                        <select id="inventory-rarity" name="inventory-rarity">
-                        <option value="common">Common</option>
-                        <option value="uncommon">Uncommon</option>
-                        <option value="rare">Rare</option>
-                        <option value="very_rare">Very Rare</option>
-                        <option value="import">Import</option>
-                        <option value="exotic">Exotic</option>
-                        <option value="black_market">Black Market</option>
-                        <option value="Premium">Premium</option>
-                        <option value="Limited">Limited</option>
+                        <select id="inventory-rarity" name="inventoryRarity">
+                            {this.createRarityOptions()}
                         </select>
                     </div>
-                    <div className="styled-select">
-                        <label htmlFor="inventory-attribute">Attribute:</label>
-                        <select id="inventory-attribute" name="inventory-attribute">
-                        <option value="certified">Certified</option>
-                        <option value="painted">Painted</option>
-                        <option value="special_edition">Special Edition</option>
+                    <div>
+                        <label htmlFor="inventory-certified">Certified:</label>
+                        <select id="inventory-certified" name="inventoryCertified">
+                            <option value={null}>Not Certified</option>
+                            {this.createCertifiedOptions()}
                         </select>
                     </div>
+{this.state.category === "wheels" ? <div>
+                        <label htmlFor="inventory-special-edition">Special Edition:</label>
+                        <select id="inventory-special-edition" name="inventorySpecialEdition">
+                            <option value={null}>Not Special Edition</option>
+                            {this.createSpecialEditionOptions()}
+                        </select>
+                    </div> : " "}
                 </div>
                 <div>
                     <button type="submit">Submit</button>
